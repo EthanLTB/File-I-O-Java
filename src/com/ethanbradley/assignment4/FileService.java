@@ -15,6 +15,7 @@ public class FileService {
 
 		try {
 			writer = new BufferedWriter(new FileWriter(fileName));
+			writer.write("StudentID, Student Name, Course, Grade \n");
 			for (int i = 0; i < studentArray.length; i++) {
 				if (studentArray[i] != null) {
 					writer.write(StudentService.studentproperties(studentArray[i]));
