@@ -10,12 +10,13 @@ public class FileService {
 	public static Student[] loadStudentsFromFile(String fileName) {
 		String[] studentStringArray = createStringArrayOfStudents(fileName);
 		Student[] students = new Student[101];
-		for(int i = 0; i < studentStringArray.length; i++) {
+		for (int i = 0; i < studentStringArray.length; i++) {
 			students[i] = StudentService.createStudent(studentStringArray[i].split(","));
 		}
 		return students;
 	}
-	
+
+
 	public static String[] createStringArrayOfStudents(String fileName) {
 		BufferedReader fileReader = null;
 		String[] students = new String[101];

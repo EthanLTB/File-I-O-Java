@@ -10,8 +10,17 @@ public class StudentService {
 		student.setGrade(arrs[3]);
 		return student;
 	}
+	public static String studentproperties(Student student) {
+		String studentString = 
+		(student.getStudentID() + "," +
+		student.getStudentName() + "," +
+		student.getCourse() + "," +
+		student.getGrade() + "\n");
+		return studentString;
+	}
 	
 	public static Student[] loadStudentsFromFile(String fileName) {
 		return FileService.loadStudentsFromFile(fileName);
 	}
+	
 }
