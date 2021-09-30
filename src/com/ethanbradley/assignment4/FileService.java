@@ -1,11 +1,35 @@
 package com.ethanbradley.assignment4;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileService {
+	
+	static BufferedWriter writer = null;
+
+	public static void writeArrayToFile(Student[] studentArray, String fileName) {
+
+		try {
+			writer = new BufferedWriter(new FileWriter(fileName));
+			for (int i = 0; i < studentArray.length; i++) {
+				if(studentArray[i] != null) {
+				writer.write(StudentService.studentproperties(studentArray[i]));
+			}
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
 
 	public static Student[] loadStudentsFromFile(String fileName) {
 		String[] studentStringArray = createStringArrayOfStudents(fileName);
@@ -15,7 +39,6 @@ public class FileService {
 		}
 		return students;
 	}
-
 
 	public static String[] createStringArrayOfStudents(String fileName) {
 		BufferedReader fileReader = null;
