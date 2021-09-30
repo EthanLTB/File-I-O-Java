@@ -1,6 +1,6 @@
 package com.ethanbradley.assignment4;
 
-public class Student  implements Comparable<Student>{
+public class Student implements Comparable<Student> {
 	private String studentID;
 	private String studentName;
 	private String course;
@@ -56,24 +56,21 @@ public class Student  implements Comparable<Student>{
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
 
 	@Override
 	public int compareTo(Student that) {
-		if(that != null) {
-			if(Integer.parseInt(this.getGrade()) > (Integer.parseInt(that.getGrade()))) {
+		if (that != null) {
+			if (Integer.parseInt(this.getGrade()) > (Integer.parseInt(that.getGrade()))) {
 				return -1;
-			} else if( Integer.parseInt(this.getGrade()) == ((Integer.parseInt(that.getGrade())))) {
+			} else if (Integer.parseInt(this.getGrade()) == ((Integer.parseInt(that.getGrade())))) {
 				return 0;
-			}else {
+			} else {
 				return 1;
 			}
-		}else {
+		} else {
 			return 0;
 		}
-	
-		
-		
+
 	}
 
 }
